@@ -11,6 +11,8 @@ from mesh_transformer.sampling import nucleaus_sample
 from mesh_transformer.transformer_shard import CausalTransformer
 
 from fastapi import FastAPI
+import nest_asyncio
+from pyngrok import ngrok
 import uvicorn
 
 from typing import Optional
@@ -105,5 +107,8 @@ async def generate(
     return response
 
 
-print("GPT-J-6B serving!")
-uvicorn.run(app, host="0.0.0.0", port=5000)
+
+ngrok_tunnel = ngrok.connect(8000)
+print('Public URL:', ngrok_tunnel.public_url)
+nest_asyncio.apply()
+uvicorn.run(app, port=8000)
