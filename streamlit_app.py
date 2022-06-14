@@ -50,7 +50,7 @@ A:""",
     except ValueError:
         rec = 0
 
-    with st.beta_expander("Generation options..."):
+    with st.expander("Generation options..."):
         length = st.slider(
             "Choose the length of the generated texts (in tokens)",
             2,
