@@ -11,3 +11,4 @@ uvicorn
 streamlit~=0.84.0
 nest-asyncio
 pyngrok
+click==7.1.2
